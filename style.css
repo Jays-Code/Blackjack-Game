@@ -17,8 +17,20 @@ h1{
 
 .btn.btn-primary {
     background-color: green;
+    align-content: center;
 }
 
 .btn.btn-secondary {
     background-color: red;
+}
+
+.col {
+    border: solid black;
+    height: 170px;
+}
+
+.cardCounter {
+    border: solid black;
+    height: 50px;
+    width: 50px
 }
