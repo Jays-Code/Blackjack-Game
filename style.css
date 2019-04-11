@@ -17,20 +17,32 @@ h1{
 
 .btn.btn-primary {
     background-color: green;
-    align-content: center;
+   
 }
 
 .btn.btn-secondary {
     background-color: red;
 }
 
-.col {
-    border: solid black;
-    height: 170px;
-}
-
 .cardCounter {
     border: solid black;
     height: 50px;
     width: 50px
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.row { 
+    border-color: rebeccapurple;
+    height: 100%;
+    
+}
+
+.col {
+    border: solid black;
+    height: 33%;
 }
