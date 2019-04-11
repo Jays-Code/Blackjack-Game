@@ -18,14 +18,14 @@ function getDeck ()
         {
             let card = {Value: cardValues[x], Suit: cardSuits[i]};
             newDeck.push(card);
-            console.log(deck);
+            //console.log(deck);
         }
     }
     return newDeck;    
 }
 
 deck = getDeck();
-console.log(deck)
+//console.log(deck)
 
 
 //Shuffling the deck of cards
@@ -41,6 +41,7 @@ function shuffleDeck()
 		deck[holder1] = deck[holder2];
 		deck[holder2] = temp;
     }
+    return deck;
 }
 
 
@@ -69,4 +70,3 @@ function renderDeck()
 	}
 }
 
-*/
