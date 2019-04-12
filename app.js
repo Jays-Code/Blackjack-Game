@@ -5,6 +5,7 @@ let cardSuits = ["S", "D", "C", "H"];
 let cardValues = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 let cardWorth = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
+
 function getDeck() {
     let newDeck = []
     //let deck = new Array();
@@ -24,8 +25,8 @@ function getDeck() {
 }
 
 deck = getDeck();
-console.log("console logged the deck below")
-console.log(deck)
+//console.log("console logged the deck below")
+//console.log(deck)
 
 
 
@@ -43,8 +44,8 @@ function shuffleDeck() {
     return deck;
 }
 shuffleDeck()
-console.log("console logged shuffled deck below")
-console.log(deck)
+//console.log("console logged shuffled deck below")
+//console.log(deck)
 
 let playerScore = 0;
 function dealCardsPlayer(cardsToDeal) {
@@ -64,7 +65,7 @@ function dealCardsPlayer(cardsToDeal) {
         card.appendChild(suit);
 
         //$(".cardPlaceholder").append(card);
-        
+
         /*
         let newArray1 = [];
         for (let i = 0; i < cardsToDeal; i++) {
@@ -76,21 +77,21 @@ function dealCardsPlayer(cardsToDeal) {
         */
         let newArray1 = [];
         for (let i = 0; i < cardsToDeal; i++) {
-            console.log(deck[deck.length - 1].Worth);
+            (deck[deck.length - 1].Worth);
             playerScore += deck[deck.length - 1].Worth;
             let lastCard = deck.pop();
             newArray1.push(lastCard);
             let displayedCard = $('<img></img>').attr("src", lastCard.path);
             $(".playersCards").append(displayedCard);
-            displayedCard.addClass("cardFormat");   
+            displayedCard.addClass("cardFormat");
         }
         return newArray1
     }
 
 }
-console.log("deal card function below")
-console.log(dealCardsPlayer(2))
-console.log(deck)
+//console.log("deal card function below")
+(dealCardsPlayer(2))
+//console.log(deck)
 shuffleDeck()
 
 //--------Player deal handled above, dealer deal handled below (same code)
@@ -101,22 +102,22 @@ function dealCardsDealer(cardsToDeal) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
         let value = document.createElement("div");
-/*
-        suit.className = "suit " + deck[i].suit;
-        card.className = "card";
-        value.className = "value";
-
-
-        value.innerHTML = deck[i].Value;
-        card.appendChild(value);
-        card.appendChild(suit);
-
-        //$(".cardPlaceholder").append(card);
-        */
+        /*
+                suit.className = "suit " + deck[i].suit;
+                card.className = "card";
+                value.className = "value";
+        
+        
+                value.innerHTML = deck[i].Value;
+                card.appendChild(value);
+                card.appendChild(suit);
+        
+                //$(".cardPlaceholder").append(card);
+                */
 
         let newArray2 = [];
         for (let i = 0; i < cardsToDeal; i++) {
-            console.log(deck[deck.length - 1].Worth);
+            (deck[deck.length - 1].Worth);
             dealerScore += deck[deck.length - 1].Worth;
             let lastCard = deck.pop();
             newArray2.push(lastCard);
@@ -124,15 +125,15 @@ function dealCardsDealer(cardsToDeal) {
             $(".dealersCards").append(displayedCard);
             displayedCard.addClass("cardFormat");
             //(OLD)check the variable "card" listed above, see what you're really referencing.
-           
+
         }
         return newArray2
     }
 
 }
-console.log("deal card function below")
-console.log(dealCardsDealer(2))
-console.log(deck)
+//console.log("deal card function below")
+(dealCardsDealer(2))
+//console.log(deck)
 
 //$("#points1").text((deck[0].Worth) + (deck[1].Worth))
 $("#points1").text(dealerScore)
@@ -162,12 +163,28 @@ displayedCard.addClass("cardFormat");
 
 //Button functions
 $(".btn.btn-primary ").click(function () {
-    shuffleDeck()
-    console.log(dealCardsPlayer(1))
+    console.log(playerScore);
+    //shuffleDeck()
+    let card = dealCardsPlayer(1)
+    console.log(card);
+    console.log(playerScore)
+    console.log(card[0].Worth)
+    $("#points2").text(playerScore)
+    if (playerScore === 21) {
+        alert("You've hit Blackjack!");
+    }
+    if (playerScore > 21) {
+        alert("You've gone bust!")
+    }
+
 })
+
+// playerScore +=deck[deck.length - 1].Worth 
+
 
 $(".btn.btn-secondary ").click(function () {
     alert("stand button has been hit")
+    
 })
 
 
