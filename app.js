@@ -40,6 +40,7 @@ function shuffleDeck() {
 
 //collaborated with Michael Lin to work out card image reference inclusion
 function renderDeck() {
+    /*
     for (let i = 0; i < cardValues.length; i++) {
         for (let j = 0; j < cardSuits.length; j++) {
             deck.push({
@@ -54,10 +55,11 @@ function renderDeck() {
         let cardImage = $("<img></img>").attr("src", deck[i].path);
     $(".cardPlaceholder").append(cardImage);
     }
-    
+    */
+
     //cardValues:
 
- //Redundant code for image reference, original technique below
+ //Redundant code for image reference, original technique below (which is currently being used to renderDeck)
     for (let i = 0; i < deck.length; i++) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
@@ -76,3 +78,9 @@ function renderDeck() {
     }
 }
 
+//Button functions
+$(".btn.btn-primary ").click(function () {
+    alert("hit button has been hit")})
+
+$(".btn.btn-secondary ").click(function () {
+        alert("stand button has been hit")})
