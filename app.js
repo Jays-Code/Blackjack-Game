@@ -48,7 +48,7 @@ console.log(deck)
 
 
 function dealCard(cardsToDeal) {
-//NOTE: card is only random if function shuffleDeck is run prior to this
+    //NOTE: card is only random if function shuffleDeck is run prior to this
     for (let i = 0; i < cardsToDeal; i++) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
@@ -64,15 +64,16 @@ function dealCard(cardsToDeal) {
         card.appendChild(suit);
 
         //$(".cardPlaceholder").append(card);
-        let displayedCard = $('<img></img>').attr("src", deck[i].path);
-        $(".playersCards").append(displayedCard);
-        displayedCard.addClass("cardFormat");
+        
 
         let newArray = [];
         for (let i = 0; i < cardsToDeal; i++) {
             newArray.push(deck.pop());
-            //check the variable "card" listed above, see what you're really referencing.
-            //console.log(newArray)
+            let displayedCard = $('<img></img>').attr("src", deck[i].path);
+        //$(".playersCards").append(displayedCard);
+        //displayedCard.addClass("cardFormat");
+            //(OLD)check the variable "card" listed above, see what you're really referencing.
+           
         }
         return newArray
     }
@@ -82,6 +83,8 @@ console.log("deal card function below")
 console.log(dealCard(2))
 console.log(deck)
 
+
+//Have an object for the player, and one for the dealer. Have the dealCard function 
 //console.log(newArray)
 
 //console.log(newArray)
