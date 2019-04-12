@@ -122,6 +122,8 @@ console.log("deal card function below")
 console.log(dealCardsDealer(2))
 console.log(deck)
 
+$("#points1").text((deck[0].Worth) + (deck[1].Worth))
+$("#points2").text((deck[2].Worth) + (deck[3].Worth))
 //Have an object for the player, and one for the dealer. Have the dealCard function 
 //console.log(newArray)
 
@@ -147,7 +149,8 @@ displayedCard.addClass("cardFormat");
 
 //Button functions
 $(".btn.btn-primary ").click(function () {
-    alert("hit button has been hit")
+    shuffleDeck()
+    console.log(dealCardsPlayer(1))
 })
 
 $(".btn.btn-secondary ").click(function () {

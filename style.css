@@ -53,7 +53,13 @@ h1{
     border: solid black;
 }
 
-.cardCounter {  
+#cardCounter1 {  
+    width: 23%;
+    height: 30%;
+    background: rgba(104, 86, 153, 0.671) 5px;
+}
+
+#cardCounter2 {  
     width: 23%;
     height: 30%;
     background: rgba(104, 86, 153, 0.671) 5px;
