@@ -3,16 +3,19 @@
 let deck = []
 let cardSuits = ["S", "D", "C", "H"];
 let cardValues = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-
-//let cardValues = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
-//attach cardValues to cardNames
+let cardWorth = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
 function getDeck() {
     let newDeck = []
     //let deck = new Array();
     for (let i = 0; i < cardSuits.length; i++) {
         for (let x = 0; x < cardValues.length; x++) {
-            let card = { Value: cardValues[x], Suit: cardSuits[i] };
+            let card = {
+                path: "cardImages/" + cardValues[x] + cardSuits[i] + ".jpg",
+                Value: cardValues[x],
+                Suit: cardSuits[i],
+                Worth: cardWorth[i]
+            };
             newDeck.push(card);
             //console.log(deck);
         }
@@ -38,28 +41,8 @@ function shuffleDeck() {
     return deck;
 }
 
-//collaborated with Michael Lin to work out card image reference inclusion
 function renderDeck() {
-    /*
-    for (let i = 0; i < cardValues.length; i++) {
-        for (let j = 0; j < cardSuits.length; j++) {
-            deck.push({
-                path: "Images/" + cardValues[i] + cardSuits[j] + ".jpeg",
-               // BRING BACK THESE LINES AND SOLVE SEMICOLON ERROR 
-               //cardValue: cardValues[i];
-               //cardWorth: cardWorth[j];
-
-            });
-        }
-        //told cardSuits may not be defined within function
-        let cardImage = $("<img></img>").attr("src", deck[i].path);
-    $(".cardPlaceholder").append(cardImage);
-    }
-    */
-
-    //cardValues:
-
- //Redundant code for image reference, original technique below (which is currently being used to renderDeck)
+    //Redundant code for image reference, original technique below (which is currently being used to renderDeck)
     for (let i = 0; i < deck.length; i++) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
@@ -75,12 +58,50 @@ function renderDeck() {
         card.appendChild(suit);
 
         $(".cardPlaceholder").append(card);
+        let displayedCard = $('<img></img>').attr("src", deck[0].path);
+        $(".playersCards").append(displayedCard);
     }
 }
 
+//Making the cards show when they are called
+//function displayCards
+let displayedCard = $('<img></img>').attr("src", deck[0].path);
+$(".playersCards").append(displayedCard);
+displayedCard.addClass("cardFormat");
+
+
 //Button functions
 $(".btn.btn-primary ").click(function () {
-    alert("hit button has been hit")})
+    alert("hit button has been hit")
+})
 
 $(".btn.btn-secondary ").click(function () {
-        alert("stand button has been hit")})
+    alert("stand button has been hit")
+})
+
+
+
+
+
+
+
+        //collaborated with Michael Lin to work out card image reference inclusion
+
+/*
+for (let i = 0; i < cardValues.length; i++) {
+    for (let j = 0; j < cardSuits.length; j++) {
+        deck.push({
+            path: "Images/" + cardValues[i] + cardSuits[j] + ".jpeg",
+           // BRING BACK THESE LINES AND SOLVE SEMICOLON ERROR
+           //cardValue: cardValues[i];
+           //cardWorth: cardWorth[j];
+
+        });
+    }
+    //told cardSuits may not be defined within function
+    let cardImage = $("<img></img>").attr("src", deck[i].path);
+$(".cardPlaceholder").append(cardImage);
+}
+*/
+
+    //cardValues:
