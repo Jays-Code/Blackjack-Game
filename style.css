@@ -52,3 +52,9 @@ h1{
     height: 100%;
     border: solid black;
 }
+
+.cardCounter {  
+    width: 23%;
+    height: 30%;
+    background: rgba(104, 86, 153, 0.671) 5px;
+}

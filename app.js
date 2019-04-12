@@ -47,7 +47,7 @@ console.log("console logged shuffled deck below")
 console.log(deck)
 
 
-function dealCard(cardsToDeal) {
+function dealCardsPlayer(cardsToDeal) {
     //NOTE: card is only random if function shuffleDeck is run prior to this
     for (let i = 0; i < cardsToDeal; i++) {
         let suit = document.createElement("div");
@@ -66,23 +66,61 @@ function dealCard(cardsToDeal) {
         //$(".cardPlaceholder").append(card);
         
 
-        let newArray = [];
+        let newArray1 = [];
         for (let i = 0; i < cardsToDeal; i++) {
-            newArray.push(deck.pop());
+            newArray1.push(deck.pop());
             let displayedCard = $('<img></img>').attr("src", deck[i].path);
-        //$(".playersCards").append(displayedCard);
-        //displayedCard.addClass("cardFormat");
+        $(".playersCards").append(displayedCard);
+        displayedCard.addClass("cardFormat");
             //(OLD)check the variable "card" listed above, see what you're really referencing.
            
         }
-        return newArray
+        return newArray1
     }
 
 }
 console.log("deal card function below")
-console.log(dealCard(2))
+console.log(dealCardsPlayer(2))
 console.log(deck)
+shuffleDeck()
 
+//--------Player deal handled above, dealer deal handled below (same code)
+
+function dealCardsDealer(cardsToDeal) {
+    //NOTE: card is only random if function shuffleDeck is run prior to this
+    for (let i = 0; i < cardsToDeal; i++) {
+        let suit = document.createElement("div");
+        let card = document.createElement("div");
+        let value = document.createElement("div");
+
+        suit.className = "suit " + deck[i].suit;
+        card.className = "card";
+        value.className = "value";
+
+
+        value.innerHTML = deck[i].Value;
+        card.appendChild(value);
+        card.appendChild(suit);
+
+        //$(".cardPlaceholder").append(card);
+        
+
+        let newArray2 = [];
+        for (let i = 0; i < cardsToDeal; i++) {
+            newArray2.push(deck.pop());
+            let displayedCard = $('<img></img>').attr("src", deck[i].path);
+        $(".dealersCards").append(displayedCard);
+        displayedCard.addClass("cardFormat");
+            //(OLD)check the variable "card" listed above, see what you're really referencing.
+           
+        }
+        return newArray2
+    }
+
+}
+console.log("deal card function below")
+console.log(dealCardsDealer(2))
+console.log(deck)
 
 //Have an object for the player, and one for the dealer. Have the dealCard function 
 //console.log(newArray)
