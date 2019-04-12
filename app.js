@@ -85,14 +85,14 @@ console.log(deck)
 shuffleDeck()
 
 //--------Player deal handled above, dealer deal handled below (same code)
-
+let dealerScore = 0;
 function dealCardsDealer(cardsToDeal) {
     //NOTE: card is only random if function shuffleDeck is run prior to this
     for (let i = 0; i < cardsToDeal; i++) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
         let value = document.createElement("div");
-
+/*
         suit.className = "suit " + deck[i].suit;
         card.className = "card";
         value.className = "value";
@@ -103,14 +103,17 @@ function dealCardsDealer(cardsToDeal) {
         card.appendChild(suit);
 
         //$(".cardPlaceholder").append(card);
-        
+        */
 
         let newArray2 = [];
         for (let i = 0; i < cardsToDeal; i++) {
-            newArray2.push(deck.pop());
-            let displayedCard = $('<img></img>').attr("src", deck[i].path);
-        $(".dealersCards").append(displayedCard);
-        displayedCard.addClass("cardFormat");
+            console.log(deck[deck.length - 1].Worth);
+            dealerScore += deck[deck.length - 1].Worth;
+            let lastCard = deck.pop();
+            newArray2.push(lastCard);
+            let displayedCard = $('<img></img>').attr("src", lastCard.path);
+            $(".dealersCards").append(displayedCard);
+            displayedCard.addClass("cardFormat");
             //(OLD)check the variable "card" listed above, see what you're really referencing.
            
         }
@@ -122,8 +125,9 @@ console.log("deal card function below")
 console.log(dealCardsDealer(2))
 console.log(deck)
 
-$("#points1").text((deck[0].Worth) + (deck[1].Worth))
-$("#points2").text((deck[2].Worth) + (deck[3].Worth))
+//$("#points1").text((deck[0].Worth) + (deck[1].Worth))
+$("#points1").text(dealerScore)
+$("#points2").text(playerScore)
 //Have an object for the player, and one for the dealer. Have the dealCard function 
 //console.log(newArray)
 
