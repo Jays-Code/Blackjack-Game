@@ -12,9 +12,9 @@ function getDeck() {
         for (let x = 0; x < cardValues.length; x++) {
             let card = {
                 path: "cardImages/" + cardValues[x] + cardSuits[i] + ".jpg",
-                Value: cardValues[x],
                 Suit: cardSuits[i],
-                Worth: cardWorth[i]
+                Value: cardValues[x],
+                Worth: cardWorth[x]
             };
             newDeck.push(card);
             //console.log(deck);
@@ -24,7 +24,9 @@ function getDeck() {
 }
 
 deck = getDeck();
-//console.log(deck)
+console.log("console logged the deck below")
+console.log(deck)
+
 
 
 //Shuffling the deck of cards
@@ -40,10 +42,14 @@ function shuffleDeck() {
     }
     return deck;
 }
+shuffleDeck()
+console.log("console logged shuffled deck below")
+console.log(deck)
+
 
 function renderDeck() {
-    //Redundant code for image reference, original technique below (which is currently being used to renderDeck)
-    for (let i = 0; i < deck.length; i++) {
+//Redundant code for image reference, original technique below (which is currently being used to renderDeck)
+    for (let i = 1; i < deck.length; i++) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
         let value = document.createElement("div");
@@ -58,10 +64,13 @@ function renderDeck() {
         card.appendChild(suit);
 
         $(".cardPlaceholder").append(card);
-        let displayedCard = $('<img></img>').attr("src", deck[0].path);
+        let displayedCard = $('<img></img>').attr("src", deck[i].path);
         $(".playersCards").append(displayedCard);
+        displayedCard.addClass("cardFormat");
     }
 }
+
+renderDeck()
 
 //Making the cards show when they are called
 //function displayCards

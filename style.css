@@ -48,7 +48,7 @@ h1{
 }
 
 .cardFormat {
-    width: 10vh;
-    height: 10vh;
+    width: 12vh;
+    height: 100%;
     border: solid black;
 }
