@@ -46,7 +46,7 @@ shuffleDeck()
 console.log("console logged shuffled deck below")
 console.log(deck)
 
-
+let playerScore = 0;
 function dealCardsPlayer(cardsToDeal) {
     //NOTE: card is only random if function shuffleDeck is run prior to this
     for (let i = 0; i < cardsToDeal; i++) {
@@ -65,7 +65,7 @@ function dealCardsPlayer(cardsToDeal) {
 
         //$(".cardPlaceholder").append(card);
         
-
+        /*
         let newArray1 = [];
         for (let i = 0; i < cardsToDeal; i++) {
             newArray1.push(deck.pop());
@@ -73,7 +73,16 @@ function dealCardsPlayer(cardsToDeal) {
         $(".playersCards").append(displayedCard);
         displayedCard.addClass("cardFormat");
             //(OLD)check the variable "card" listed above, see what you're really referencing.
-           
+        */
+        let newArray1 = [];
+        for (let i = 0; i < cardsToDeal; i++) {
+            console.log(deck[deck.length - 1].Worth);
+            playerScore += deck[deck.length - 1].Worth;
+            let lastCard = deck.pop();
+            newArray1.push(lastCard);
+            let displayedCard = $('<img></img>').attr("src", lastCard.path);
+            $(".playersCards").append(displayedCard);
+            displayedCard.addClass("cardFormat");   
         }
         return newArray1
     }
