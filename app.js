@@ -184,9 +184,26 @@ $(".btn.btn-primary ").click(function () {
 
 $(".btn.btn-secondary ").click(function () {
     alert("stand button has been hit")
+    console.log(playerScore);
+    //shuffleDeck()
+    let card = dealCardsDealer(1)
+    console.log(card);
+    console.log(dealerScore)
+    console.log(card[0].Worth)
+    $("#points1").text(dealerScore)
+    if (dealerScore === 21) {
+    alert("Dealer has hit Blackjack!");
+}
+    if (dealerScore > 21) {
+    alert("Dealer has gone bust!")
+  }
+    if (dealerScore < 17) {
+        console.log(card)
+        
+    }
+    
     
 })
-
 
 
 
