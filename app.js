@@ -47,9 +47,9 @@ console.log("console logged shuffled deck below")
 console.log(deck)
 
 
-function renderDeck() {
-//Redundant code for image reference, original technique below (which is currently being used to renderDeck)
-    for (let i = 1; i < deck.length; i++) {
+function dealCard(cardsToDeal) {
+//NOTE: card is only random if function shuffleDeck is run prior to this
+    for (let i = 0; i < cardsToDeal; i++) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
         let value = document.createElement("div");
@@ -63,21 +63,46 @@ function renderDeck() {
         card.appendChild(value);
         card.appendChild(suit);
 
-        $(".cardPlaceholder").append(card);
+        //$(".cardPlaceholder").append(card);
         let displayedCard = $('<img></img>').attr("src", deck[i].path);
         $(".playersCards").append(displayedCard);
         displayedCard.addClass("cardFormat");
-    }
-}
 
-renderDeck()
+        let newArray = [];
+        for (let i = 0; i < cardsToDeal; i++) {
+            newArray.push(deck.pop());
+            //check the variable "card" listed above, see what you're really referencing.
+            //console.log(newArray)
+        }
+        return newArray
+    }
+
+}
+console.log("deal card function below")
+console.log(dealCard(2))
+console.log(deck)
+
+//console.log(newArray)
+
+//console.log(newArray)
+
+
+//Will have to attach dealCard function to a hit button. Also dealCard will go at start of the game
+//dealCard(2)
+
+//dealCard()
+
+//return newArray
+
 
 //Making the cards show when they are called
 //function displayCards
+
+/* duplicated code, can delete
 let displayedCard = $('<img></img>').attr("src", deck[0].path);
 $(".playersCards").append(displayedCard);
 displayedCard.addClass("cardFormat");
-
+*/
 
 //Button functions
 $(".btn.btn-primary ").click(function () {
@@ -93,7 +118,7 @@ $(".btn.btn-secondary ").click(function () {
 
 
 
-
+//--------------
         //collaborated with Michael Lin to work out card image reference inclusion
 
 /*
@@ -114,3 +139,32 @@ $(".cardPlaceholder").append(cardImage);
 */
 
     //cardValues:
+
+/*---------------OLD renderDeck function before changed to pickCard to handle one card and not whole deck
+
+
+function pickCard() {
+//NOTE: card is only random if function shuffleDeck is run prior to this
+    for (let i = 0; i < deck.length; i++) {
+        let suit = document.createElement("div");
+        let card = document.createElement("div");
+        let value = document.createElement("div");
+
+        suit.className = "suit " + deck[i].suit;
+        card.className = "card";
+        value.className = "value";
+
+
+        value.innerHTML = deck[i].Value;
+        card.appendChild(value);
+        card.appendChild(suit);
+
+        //$(".cardPlaceholder").append(card);
+        let displayedCard = $('<img></img>').attr("src", deck[i].path);
+        $(".playersCards").append(displayedCard);
+        displayedCard.addClass("cardFormat");
+    }
+}
+
+pickCard()
+*/
