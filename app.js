@@ -197,65 +197,27 @@ $(".btn.btn-secondary ").click(function () {
     if (dealerScore > 21) {
     alert("Dealer has gone bust!")
   }
-    if (dealerScore < 17) {
-        console.log(card)
-        
+    while (dealerScore < 17) {
+          let card = dealCardsDealer(1)
+    console.log(card);
+    console.log(dealerScore)
+    console.log(card[0].Worth)
+    $("#points1").text(dealerScore)
+    if (dealerScore === 21) {
+    alert("Dealer has hit Blackjack!");
+}
+    if (dealerScore > 21) {
+    alert("Dealer has gone bust!")
+  }
+    while (dealerScore < 17) {
+        dealCardsDealer(1)
+    
     }
     
     
+}
+
+
+
+
 })
-
-
-
-
-
-//--------------
-        //collaborated with Michael Lin to work out card image reference inclusion
-
-/*
-for (let i = 0; i < cardValues.length; i++) {
-    for (let j = 0; j < cardSuits.length; j++) {
-        deck.push({
-            path: "Images/" + cardValues[i] + cardSuits[j] + ".jpeg",
-           // BRING BACK THESE LINES AND SOLVE SEMICOLON ERROR
-           //cardValue: cardValues[i];
-           //cardWorth: cardWorth[j];
-
-        });
-    }
-    //told cardSuits may not be defined within function
-    let cardImage = $("<img></img>").attr("src", deck[i].path);
-$(".cardPlaceholder").append(cardImage);
-}
-*/
-
-    //cardValues:
-
-/*---------------OLD renderDeck function before changed to pickCard to handle one card and not whole deck
-
-
-function pickCard() {
-//NOTE: card is only random if function shuffleDeck is run prior to this
-    for (let i = 0; i < deck.length; i++) {
-        let suit = document.createElement("div");
-        let card = document.createElement("div");
-        let value = document.createElement("div");
-
-        suit.className = "suit " + deck[i].suit;
-        card.className = "card";
-        value.className = "value";
-
-
-        value.innerHTML = deck[i].Value;
-        card.appendChild(value);
-        card.appendChild(suit);
-
-        //$(".cardPlaceholder").append(card);
-        let displayedCard = $('<img></img>').attr("src", deck[i].path);
-        $(".playersCards").append(displayedCard);
-        displayedCard.addClass("cardFormat");
-    }
-}
-
-pickCard()
-*/
