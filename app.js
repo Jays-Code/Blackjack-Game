@@ -162,7 +162,7 @@ displayedCard.addClass("cardFormat");
 */
 
 //Button functions
-$(".btn.btn-primary ").click(function () {
+$(".btn.btn-primary").click(function () {
     console.log(playerScore);
     //shuffleDeck()
     let card = dealCardsPlayer(1)
@@ -175,15 +175,16 @@ $(".btn.btn-primary ").click(function () {
     }
     if (playerScore > 21) {
         alert("You've gone bust!")
+        alert("Dealer has won!")
     }
-
+    
 })
 
 // playerScore +=deck[deck.length - 1].Worth 
 
 
-$(".btn.btn-secondary ").click(function () {
-    alert("stand button has been hit")
+$(".btn.btn-secondary").click(function () {
+    alert("Player chose to stand")
     console.log(playerScore);
     //shuffleDeck()
     let card = dealCardsDealer(1)
@@ -192,32 +193,38 @@ $(".btn.btn-secondary ").click(function () {
     console.log(card[0].Worth)
     $("#points1").text(dealerScore)
     if (dealerScore === 21) {
-    alert("Dealer has hit Blackjack!");
-}
-    if (dealerScore > 21) {
-    alert("Dealer has gone bust!")
-  }
-    while (dealerScore < 17) {
-          let card = dealCardsDealer(1)
-    console.log(card);
-    console.log(dealerScore)
-    console.log(card[0].Worth)
-    $("#points1").text(dealerScore)
-    if (dealerScore === 21) {
-    alert("Dealer has hit Blackjack!");
-}
-    if (dealerScore > 21) {
-    alert("Dealer has gone bust!")
-  }
-    while (dealerScore < 17) {
-        dealCardsDealer(1)
-    
+        alert("Dealer has hit Blackjack!");
     }
-    
-    
-}
+    if (dealerScore > 21) {
+        alert("Dealer has gone bust!")
+    }
+    while (dealerScore < 17) {
+        let card = dealCardsDealer(1)
+        console.log(card);
+        console.log(dealerScore)
+        console.log(card[0].Worth)
+        $("#points1").text(dealerScore)
+        if (dealerScore === 21) {
+            alert("Dealer has hit Blackjack!");
+        }
+        if (dealerScore > 21) {
+            alert("Dealer has gone bust!")
+        }
+        while (dealerScore < 17) {
+            dealCardsDealer(1)
 
+        }
+    }
 
-
-
+    if (dealerScore > playerScore && dealerScore < 22) {
+        alert ("Dealer has won")
+    if (dealerScore < playerScore) {
+        alert ("Player has won!")
+    }}
+    if (dealerScore ===  playerScore) {
+        alert("It is a tie!")
+    }
+    if (dealerScore > playerScore && dealerScore > 21)
+        alert ("Player has won!")
 })
+
