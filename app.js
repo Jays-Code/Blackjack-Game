@@ -180,11 +180,10 @@ $(".btn.btn-primary").click(function () {
     
 })
 
-// playerScore +=deck[deck.length - 1].Worth 
-
-
 $(".btn.btn-secondary").click(function () {
     alert("Player chose to stand")
+    //disabled hit button when stand button is pressed, resource https://stackoverflow.com/questions/8685107/hiding-a-button-in-javascript
+    $('button').prop('disabled', true);
     console.log(playerScore);
     //shuffleDeck()
     let card = dealCardsDealer(1)
