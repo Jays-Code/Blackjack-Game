@@ -8,11 +8,13 @@ h1{
     border: solid rgba(50, 13, 150, 0.596) 5px;
 }
 #gameArea {
+  
     background-color: lightblue;
     text-align: center;
     width : 90%;
     height: 85%;
     margin: 0 auto;
+    
 }
 
 .btn.btn-primary {
@@ -63,4 +65,8 @@ h1{
     width: 23%;
     height: 30%;
     background: rgba(104, 86, 153, 0.671) 5px;
+}
+
+#gameMessages {
+    font-style: italic;
 }

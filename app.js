@@ -135,10 +135,18 @@ function dealCardsDealer(cardsToDeal) {
 (dealCardsDealer(2))
 //console.log(deck)
 
+let br = document.createElement('br');
+
 //$("#points1").text((deck[0].Worth) + (deck[1].Worth))
 $("#points1").text(dealerScore)
 $("#points2").text(playerScore)
-
+//console.log(playerScore)
+if (playerScore === 21) {
+    $("#gameMessages").append("You've hit Blackjack!");
+}
+if (dealerScore === 21) {
+    $("#gameMessages").append("Dealer has hit Blackjack!");
+}
 //If dealer score is more than the player score 
 //Have an object for the player, and one for the dealer. Have the dealCard function 
 //console.log(newArray)
@@ -179,11 +187,18 @@ $(".btn.btn-primary").click(function () {
         $("#gameMessages").append("You've gone bust!")
         $("#gameMessages").after("Dealer has won!")
     }
-    
+
 })
 
 $(".btn.btn-secondary").click(function () {
-    alert("Player chose to stand")
+    // $("#gameMessages").append("Player chose to stand")
+    //Removing text that was appended https://api.jquery.com/empty/
+    /*
+    setTimeout(function() {
+        $("#gameMessages").empty();
+      }, 3000);
+      */
+
     //disabled hit button when stand button is pressed, resource https://stackoverflow.com/questions/8685107/hiding-a-button-in-javascript
     $('button').prop('disabled', true);
     console.log(playerScore);
@@ -194,10 +209,11 @@ $(".btn.btn-secondary").click(function () {
     console.log(card[0].Worth)
     $("#points1").text(dealerScore)
     if (dealerScore === 21) {
-        alert("Dealer has hit Blackjack!");
+        $("#gameMessages").append("Dealer has hit Blackjack!");
     }
     if (dealerScore > 21) {
-        alert("Dealer has gone bust!")
+        $("#gameMessages").append("Dealer has gone bust!")
+        //was .after above, but changed. Keep if see no issue.
     }
     while (dealerScore < 17) {
         let card = dealCardsDealer(1)
@@ -206,26 +222,34 @@ $(".btn.btn-secondary").click(function () {
         console.log(card[0].Worth)
         $("#points1").text(dealerScore)
         if (dealerScore === 21) {
-            alert("Dealer has hit Blackjack!");
+            $("#gameMessages").append("Dealer has hit Blackjack!");
+            $("#gameMessages").after(br);
         }
         if (dealerScore > 21) {
-            alert("Dealer has gone bust!")
+            $("#gameMessages").append("Dealer has gone bust!")
+            $("#gameMessages").after(br);
         }
         while (dealerScore < 17) {
             dealCardsDealer(1)
 
         }
     }
-
+if (dealerScore === playerScore) {
+        $("#gameMessages").after("It is a tie!")
+    }
     if (dealerScore > playerScore && dealerScore < 22) {
-        alert ("Dealer has won")
-    if (dealerScore < playerScore) {
-        alert ("Player has won!")
-    }}
-    if (dealerScore ===  playerScore) {
-        alert("It is a tie!")
+        $("#gameMessages").after("Dealer has won")
+        if (dealerScore < playerScore) {
+            $("#gameMessages").append("Player has won!")
+            $("#gameMessages").after(br);
+        }
+    }
+    if (dealerScore === playerScore) {
+        $("#gameMessages").after("It is a tie!")
     }
     if (dealerScore > playerScore && dealerScore > 21)
-        alert ("Player has won!")
+        $("#gameMessages").after("Player has won!")
+        $("#gameMessages").after(br);
 })
+
 
