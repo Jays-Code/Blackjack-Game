@@ -138,6 +138,8 @@ function dealCardsDealer(cardsToDeal) {
 //$("#points1").text((deck[0].Worth) + (deck[1].Worth))
 $("#points1").text(dealerScore)
 $("#points2").text(playerScore)
+
+//If dealer score is more than the player score 
 //Have an object for the player, and one for the dealer. Have the dealCard function 
 //console.log(newArray)
 
@@ -171,11 +173,11 @@ $(".btn.btn-primary").click(function () {
     console.log(card[0].Worth)
     $("#points2").text(playerScore)
     if (playerScore === 21) {
-        alert("You've hit Blackjack!");
+        $("#gameMessages").append("You've hit Blackjack!");
     }
     if (playerScore > 21) {
-        alert("You've gone bust!")
-        alert("Dealer has won!")
+        $("#gameMessages").append("You've gone bust!")
+        $("#gameMessages").after("Dealer has won!")
     }
     
 })
