@@ -8,7 +8,7 @@ let cardWorth = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
 function getDeck() {
     let newDeck = []
-    //let deck = new Array();
+    
     for (let i = 0; i < cardSuits.length; i++) {
         for (let x = 0; x < cardValues.length; x++) {
             let card = {
@@ -18,17 +18,13 @@ function getDeck() {
                 Worth: cardWorth[x]
             };
             newDeck.push(card);
-            //console.log(deck);
+    
         }
     }
     return newDeck;
 }
 
 deck = getDeck();
-//console.log("console logged the deck below")
-//console.log(deck)
-
-
 
 //Shuffling the deck of cards
 function shuffleDeck() {
@@ -64,17 +60,6 @@ function dealCardsPlayer(cardsToDeal) {
         card.appendChild(value);
         card.appendChild(suit);
 
-        //$(".cardPlaceholder").append(card);
-
-        /*
-        let newArray1 = [];
-        for (let i = 0; i < cardsToDeal; i++) {
-            newArray1.push(deck.pop());
-            let displayedCard = $('<img></img>').attr("src", deck[i].path);
-        $(".playersCards").append(displayedCard);
-        displayedCard.addClass("cardFormat");
-            //(OLD)check the variable "card" listed above, see what you're really referencing.
-        */
         let newArray1 = [];
         for (let i = 0; i < cardsToDeal; i++) {
             (deck[deck.length - 1].Worth);
@@ -147,29 +132,6 @@ if (playerScore === 21) {
 if (dealerScore === 21) {
     $("#gameMessages").append("Dealer has hit Blackjack!");
 }
-//If dealer score is more than the player score 
-//Have an object for the player, and one for the dealer. Have the dealCard function 
-//console.log(newArray)
-
-//console.log(newArray)
-
-
-//Will have to attach dealCard function to a hit button. Also dealCard will go at start of the game
-//dealCard(2)
-
-//dealCard()
-
-//return newArray
-
-
-//Making the cards show when they are called
-//function displayCards
-
-/* duplicated code, can delete
-let displayedCard = $('<img></img>').attr("src", deck[0].path);
-$(".playersCards").append(displayedCard);
-displayedCard.addClass("cardFormat");
-*/
 
 //Button functions
 $(".btn.btn-primary").click(function () {
