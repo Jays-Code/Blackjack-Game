@@ -8,7 +8,7 @@ let cardWorth = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
 
 function getDeck() {
     let newDeck = []
-    
+
     for (let i = 0; i < cardSuits.length; i++) {
         for (let x = 0; x < cardValues.length; x++) {
             let card = {
@@ -18,7 +18,7 @@ function getDeck() {
                 Worth: cardWorth[x]
             };
             newDeck.push(card);
-    
+
         }
     }
     return newDeck;
@@ -40,8 +40,6 @@ function shuffleDeck() {
     return deck;
 }
 shuffleDeck()
-//console.log("console logged shuffled deck below")
-//console.log(deck)
 
 let playerScore = 0;
 function dealCardsPlayer(cardsToDeal) {
@@ -74,12 +72,12 @@ function dealCardsPlayer(cardsToDeal) {
     }
 
 }
-//console.log("deal card function below")
+
 (dealCardsPlayer(2))
-//console.log(deck)
 shuffleDeck()
 
-//--------Player deal handled above, dealer deal handled below (same code)
+//--------Player deal handled above, dealer deal handled below
+
 let dealerScore = 0;
 function dealCardsDealer(cardsToDeal) {
     //NOTE: card is only random if function shuffleDeck is run prior to this
@@ -87,18 +85,6 @@ function dealCardsDealer(cardsToDeal) {
         let suit = document.createElement("div");
         let card = document.createElement("div");
         let value = document.createElement("div");
-        /*
-                suit.className = "suit " + deck[i].suit;
-                card.className = "card";
-                value.className = "value";
-        
-        
-                value.innerHTML = deck[i].Value;
-                card.appendChild(value);
-                card.appendChild(suit);
-        
-                //$(".cardPlaceholder").append(card);
-                */
 
         let newArray2 = [];
         for (let i = 0; i < cardsToDeal; i++) {
@@ -116,16 +102,15 @@ function dealCardsDealer(cardsToDeal) {
     }
 
 }
-//console.log("deal card function below")
+
 (dealCardsDealer(2))
-//console.log(deck)
 
 let br = document.createElement('br');
 
 //$("#points1").text((deck[0].Worth) + (deck[1].Worth))
 $("#points1").text(dealerScore)
 $("#points2").text(playerScore)
-//console.log(playerScore)
+
 if (playerScore === 21) {
     $("#gameMessages").append("You've hit Blackjack!");
 }
@@ -196,7 +181,7 @@ $(".btn.btn-secondary").click(function () {
 
         }
     }
-if (dealerScore === playerScore) {
+    if (dealerScore === playerScore) {
         $("#gameMessages").after("It is a tie!")
     }
     if (dealerScore > playerScore && dealerScore < 22) {
@@ -211,7 +196,7 @@ if (dealerScore === playerScore) {
     }
     if (dealerScore > playerScore && dealerScore > 21)
         $("#gameMessages").after("Player has won!")
-        $("#gameMessages").after(br);
+    $("#gameMessages").after(br);
 })
 
 
