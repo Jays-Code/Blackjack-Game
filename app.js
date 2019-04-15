@@ -112,10 +112,10 @@ $("#points1").text(dealerScore)
 $("#points2").text(playerScore)
 
 if (playerScore === 21) {
-    $("#gameMessages").append("You've hit Blackjack!");
+    $("#gameMessages").append("You've hit Blackjack! ");
 }
 if (dealerScore === 21) {
-    $("#gameMessages").append("Dealer has hit Blackjack!");
+    $("#gameMessages").append("Dealer has hit Blackjack! ");
 }
 
 //Button functions
@@ -128,13 +128,16 @@ $(".btn.btn-primary").click(function () {
     console.log(card[0].Worth)
     $("#points2").text(playerScore)
     if (playerScore === 21) {
-        $("#gameMessages").append("You've hit Blackjack!");
+        $("#gameMessages").append("You've hit Blackjack! ");
     }
     if (playerScore > 21) {
         $("#gameMessages").append("You've gone bust!")
         $("#gameMessages").after("Dealer has won!")
     }
-
+    if (dealerScore === 21 && playerScore === 21) {
+        $('button').prop('disabled', true);
+        $("#gameMessages").after("It is a tie!")
+    }
 })
 
 $(".btn.btn-secondary").click(function () {
@@ -156,7 +159,7 @@ $(".btn.btn-secondary").click(function () {
     console.log(card[0].Worth)
     $("#points1").text(dealerScore)
     if (dealerScore === 21) {
-        $("#gameMessages").append("Dealer has hit Blackjack!");
+        $("#gameMessages").append("Dealer has hit Blackjack! ");
     }
     if (dealerScore > 21) {
         $("#gameMessages").append("Dealer has gone bust!")
@@ -178,7 +181,13 @@ $(".btn.btn-secondary").click(function () {
         }
         while (dealerScore < 17) {
             dealCardsDealer(1)
-
+            if (dealerScore > playerScore && dealerScore < 22) {
+                $("#gameMessages").after("Dealer has won")
+                if (dealerScore < playerScore) {
+                    $("#gameMessages").append("Player has won!")
+                    $("#gameMessages").after(br);
+                }
+            }
         }
     }
     if (dealerScore === playerScore) {
@@ -194,9 +203,14 @@ $(".btn.btn-secondary").click(function () {
     if (dealerScore === playerScore) {
         $("#gameMessages").after("It is a tie!")
     }
-    if (dealerScore > playerScore && dealerScore > 21)
+    if (dealerScore > playerScore && dealerScore > 21) {
         $("#gameMessages").after("Player has won!")
-    $("#gameMessages").after(br);
+        $("#gameMessages").after(br);
+    }
+    if (dealerScore < playerScore) {
+        $("#gameMessages").append("Player has won!")
+        $("#gameMessages").after(br);
+    }
 })
 
 
