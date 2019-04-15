@@ -200,9 +200,7 @@ $(".btn.btn-secondary").click(function () {
             $("#gameMessages").after(br);
         }
     }
-    if (dealerScore === playerScore) {
-        $("#gameMessages").after("It is a tie!")
-    }
+
     if (dealerScore > playerScore && dealerScore > 21) {
         $("#gameMessages").after("Player has won!")
         $("#gameMessages").after(br);
